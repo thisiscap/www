@@ -1,0 +1,27 @@
+//
+// Editorial styles (.editorial)
+//
+
+.editorial {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: normal;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+        font-size: clamp(1.6rem, 3vw, 6rem);
+        line-height: 1.05;
+    }
+
+    ::selection {
+        background-color: black;
+        color: white;
+    }
+}

@@ -1,0 +1,71 @@
+//
+// Base
+//
+
+// Typography
+
+@font-face {
+    font-family: 'Tobias';
+    src:    url('/assets/font/font.woff2') format('woff2'),
+            url('/assets/font/font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-kerning: normal;
+    letter-spacing: -0.030em;
+    font-feature-settings: 'liga' 1, 'dlig' 1, 'ss01' 1, 'ss11' 1;
+}
+
+body {
+    font-family: 'Tobias', serif;
+}
+
+// Disable animations by default
+
+.preload * {
+    transition: none !important;
+}
+
+// Layout
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    background-color: $colour-green;
+}
+
+main.site-content {
+    flex: 1;
+    min-height: 100vh;
+}
+
+div.site-wrapper {
+    max-width: $site-width--max;
+    margin: 0 auto;
+    padding: 0 $site-padding--small;
+}
+
+// Links
+
+a {
+    &:link {
+        text-decoration: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: from-font;
+        color: inherit;
+    }
+
+    &:visited {
+        color: inherit;
+    }
+    
+    &:hover {
+        text-decoration-style: double;
+    }
+
+    &:focus {
+        text-decoration-style: wavy;
+    }
+}

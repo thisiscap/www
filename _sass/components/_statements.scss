@@ -1,0 +1,36 @@
+//
+// Statements (.statements)
+//
+
+.statements {
+    .site-wrapper {
+        scroll-snap-type: y proximity;
+    }
+}
+
+.statement {
+    margin: 0 auto 30vh;
+    width: 100%;
+    max-width: 60ch;
+    scroll-snap-align: center;
+
+    &:first-of-type {
+        margin: 30vh auto;
+    }
+
+    &:last-of-type {
+        margin: 30vh auto 60vh;
+    }
+}
+
+// Hide fallback statements by default
+
+.statements__fallback {
+    display: none;
+}
+
+// Show fallback statements if no-js
+
+.no-js .statements__fallback {
+    display: block;
+}

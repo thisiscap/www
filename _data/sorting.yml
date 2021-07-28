@@ -1,0 +1,8 @@
+#
+# Sorting links used in .site-header
+#
+
+- text: Most personal
+  url: /
+- text: Most informative
+  url: /?sort=informative

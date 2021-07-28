@@ -1,0 +1,22 @@
+<header class="site-header">
+    <div class="site-wrapper">
+
+        <a href="#content" class="site-header__skip-link">Skip to main content</a>
+
+        <div class="site-header__sort">
+            <nav>
+                <header>Sort by:</header>
+                
+                {% for link in site.data.sorting %}
+                    <a href="{{ link.url }}">{{ link.text }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+
+        <div class="editorial">
+            <h1>Chris Porter&hairsp;&mldr;</h1>
+        </div>
+
+    </div>
+</header>
+

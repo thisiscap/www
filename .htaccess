@@ -1,0 +1,12 @@
+#
+# Site .htaccess
+#
+
+# Prevent font hotlinking
+
+SetEnvIf Referer chrisporter\.uk localreferer
+<FilesMatch \.(woff|woff2)$>
+    Order deny,allow
+    Deny from all
+    Allow from env=localreferer
+</FilesMatch>

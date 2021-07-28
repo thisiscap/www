@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page.title }} &mdash; {{ site.title }}</title>
+
+        {% comment %} SEO related meta {% endcomment %}
+        <meta name="description" content="{% if page.metaDescription %}{{ page.metaDescription }}{% else %}{{ site.metaDescription }}{% endif %}.">
+        <meta property="og:title" content="{{ page.title }} &mdash; {{ site.title }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ page.url | prepend: site.url }}">
+        <meta property="og:image" content="{% if page.ogImage %}{{ page.metaSocialImage | prepend: site.url }}{% else %}{{ site.metaSocialImage | prepend: site.url }}{% endif %}">
+
+        {% comment %} Icons and favicons (put favicon.ico in the root directory) {% endcomment %}
+        {% comment %} <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | prepend: site.url }}"> {% endcomment %}
+        <meta name="theme-color" content="#000000">
+
+        {% comment %} Static file caching version number {% endcomment %}
+        {%- assign fileCacheVersion = site.time | date: '?v=%s' -%}
+
+        {% comment %} CSS stylesheets {% endcomment %}
+        <link rel="stylesheet" href="{{ '/assets/css/global.css' | relative_url | append: fileCacheVersion }}">
+    </head>
+
+    <!-- Interested in learning more about this website? Check out https://github.com/thisiscap/www  -->
+
+    <body class="no-js {% if page.name %}page page__{{ page.name | remove: ".html" }}{% endif %}">
+
+        {% include site-header.html %}
+        
+        <main id="content" class="site-content">
+            {% comment %} Child template content {% endcomment %}
+            {{ content }}
+        </main>
+
+        {% include site-footer.html %}
+
+        <script src="{{ '/assets/js/global.js' | relative_url | append: fileCacheVersion }}" defer></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,96 @@
+//
+// Site header (.site-header)
+//
+
+.site-header {
+    background: $colour-green;
+    position: sticky;
+    top: 0;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 30vh;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+
+        @include scrimGradient (
+            $colour-green, 'to bottom'
+        )
+    }
+
+    .site-wrapper {
+        position: relative;
+    }
+
+    h1 {
+        margin: 0 0 2rem;
+    }
+}
+
+.site-header__skip-link {
+    padding: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background-color: black;
+
+    @include pf(motion) {
+        transition: transform 0.3s;
+        will-change: transform;
+    }
+
+    &:link {
+        color: white;
+    }
+
+    &:visited {
+        color: white;
+    }
+
+    &:focus {
+        transform: translateX(-50%) translateY(0%);
+    }
+}
+
+.site-header__sort {
+    margin: 0 0 $site-vertical-rhythm--small;
+    font-size: .7em;
+
+    @include bp(medium) {
+        font-size: .9em;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+
+        header {
+            flex-basis: 100%;
+            margin: 1em 0 .5em;
+
+            @include bp(medium) {
+                flex-basis: initial;
+                margin: 1em .5em;
+            }
+        }
+        
+        a {
+            margin: .5rem;
+
+            @include bp(medium) {
+                margin: 1em .5em;
+            }
+        }
+
+        a.current {
+            text-decoration: none;
+            pointer-events: none;
+        }
+    }
+}
