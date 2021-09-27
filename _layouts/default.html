@@ -14,7 +14,8 @@
         <meta property="og:image" content="{% if page.ogImage %}{{ page.metaSocialImage | prepend: site.url }}{% else %}{{ site.metaSocialImage | prepend: site.url }}{% endif %}">
 
         {% comment %} Icons and favicons (put favicon.ico in the root directory) {% endcomment %}
-        {% comment %} <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | prepend: site.url }}"> {% endcomment %}
+        <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+        <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
         <meta name="theme-color" content="#000000">
 
         {% comment %} Static file caching version number {% endcomment %}
