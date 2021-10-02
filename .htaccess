@@ -2,6 +2,20 @@
 # Site .htaccess
 #
 
+# Redirect old domain
+
+RewriteCond %{HTTP_HOST} =christopherporter.co.uk
+RewriteRule (.*) https://chrisporter.uk/$1 [R=302,L]
+RewriteCond %{HTTP_HOST} =www.christopherporter.co.uk
+RewriteRule (.*) https://chrisporter.uk/$1 [R=302,L]
+
+
+# Redirect www
+
+RewriteCond %{HTTP_HOST} =www.chrisporter.uk
+RewriteRule (.*) https://chrisporter.uk/$1 [R=302,L]
+
+
 # Prevent font hotlinking
 
 SetEnvIf Referer chrisporter\.uk localreferer
