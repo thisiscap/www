@@ -23,11 +23,7 @@ permalink: pretty
 # Exclude these files from being added to the site build
 exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'vendor/*']
 
-# Define content collections
-collections:
-  statements:
-
 # Site meta fallbacks
 title: Chris Porter
-metaDescription: The tiny online presence of Chris Porter
+metaDescription: The (tiny) online presence of Chris Porter
 metaSocialImage: /assets/img/og.jpg

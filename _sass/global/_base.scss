@@ -1,71 +1,196 @@
 //
-// Base
+// Base styles
 //
 
-// Typography
+@use 'helper/variables';
 
-@font-face {
-    font-family: 'Tobias';
-    src:    url('/assets/font/font.woff2') format('woff2'),
-            url('/assets/font/font.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-kerning: normal;
-    letter-spacing: -0.030em;
-    font-feature-settings: 'liga' 1, 'dlig' 1, 'ss01' 1, 'ss11' 1;
-}
-
-body {
-    font-family: 'Tobias', serif;
-}
-
-// Disable animations by default
-
-.preload * {
-    transition: none !important;
-}
+$breakpoint: 800px;
 
 // Layout
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    text-align: center;
-    font-size: 20px;
-    background-color: $colour-green;
+    font-family: "ApfelGrotezk-Regular";
+    font-size: var(--font-size-0);
+    min-height: 100svh;
 }
 
-main.site-content {
-    flex: 1;
-    min-height: 100vh;
+.site-container {
+    min-height: 100%;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl-3xl);
+    padding: var(--space-xs);
 }
 
-div.site-wrapper {
-    max-width: $site-width--max;
-    margin: 0 auto;
-    padding: 0 $site-padding--small;
+@media (min-width: $breakpoint) {
+    .site-container {
+        grid-template-areas: 
+            "header main footer"
+            ". main footer";
+        grid-template-columns: auto 1fr auto;
+    }
+}
+
+.site-header {
+    grid-area: header;
+}
+
+.site-main {
+    grid-area: main;
+}
+
+.site-footer {
+    grid-area: footer;
+}
+
+.site-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-m-l);
+}
+
+@media (min-width: $breakpoint) {
+    .site-content {
+        min-height: 100%;
+    }
+}
+
+// Colour themes (responsive to preferences)
+
+.site-theme {
+    background-color: variables.$colour-light-purple;
+    color: variables.$colour-dark-purple;
+
+    ::selection {
+        background-color: white; 
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .site-theme.adaptive {
+        background-color: variables.$colour-dark-purple;
+        color: variables.$colour-light-purple;
+
+        ::selection {
+            background-color: variables.$colour-light-purple;
+            color: variables.$colour-dark-purple;
+        }
+    }
+}
+
+// Fonts
+// @link https://www.collletttivo.it/typefaces/apfel-grotezk
+
+@font-face {
+    font-family: "ApfelGrotezk-Regular";
+    src: url("/assets/font/ApfelGrotezk-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ApfelGrotezk-Satt";
+    src: url("/assets/font/ApfelGrotezk-Satt.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+}
+
+// Type scales
+// @link https://utopia.fyi/type/calculator?c=375,18,1.125,1280,23,1.125,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+
+:root {
+    --font-size--2: clamp(0.8889rem, 0.7866rem + 0.4365vi, 1.1358rem);
+    --font-size--1: clamp(1rem, 0.8849rem + 0.4911vi, 1.2778rem);
+    --font-size-0: clamp(1.125rem, 0.9955rem + 0.5525vi, 1.4375rem);
+    --font-size-1: clamp(1.2656rem, 1.1199rem + 0.6215vi, 1.6172rem);
+    --font-size-2: clamp(1.4238rem, 1.2599rem + 0.6992vi, 1.8193rem);
+    --font-size-3: clamp(1.6018rem, 1.4174rem + 0.7866vi, 2.0468rem);
+    --font-size-4: clamp(1.802rem, 1.5946rem + 0.885vi, 2.3026rem);
+    --font-size-5: clamp(2.0273rem, 1.7939rem + 0.9956vi, 2.5904rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "ApfelGrotezk-Satt";
+    font-size: var(--font-size-5);
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    line-height: .9;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--font-size-5);
+}
+
+p {
+    line-height: 1.4;
+    max-width: 54ch;
+    text-wrap: pretty;
+}
+
+// Spacing scales
+// @link https://utopia.fyi/space/calculator?c=375,18,1.125,1280,23,1.125,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,&g=s,l,xl,12
+
+:root {
+    --space-3xs: clamp(0.3125rem, 0.2866rem + 0.1105vi, 0.375rem);
+    --space-2xs: clamp(0.5625rem, 0.4848rem + 0.3315vi, 0.75rem);
+    --space-xs: clamp(0.875rem, 0.7973rem + 0.3315vi, 1.0625rem);
+    --space-s: clamp(1.125rem, 0.9955rem + 0.5525vi, 1.4375rem);
+    --space-m: clamp(1.6875rem, 1.4803rem + 0.884vi, 2.1875rem);
+    --space-l: clamp(2.25rem, 1.991rem + 1.105vi, 2.875rem);
+    --space-xl: clamp(3.375rem, 2.9865rem + 1.6575vi, 4.3125rem);
+    --space-2xl: clamp(4.5rem, 3.982rem + 2.2099vi, 5.75rem);
+    --space-3xl: clamp(6.75rem, 5.9731rem + 3.3149vi, 8.625rem);
+  
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.3125rem, 0.1312rem + 0.7735vi, 0.75rem);
+    --space-2xs-xs: clamp(0.5625rem, 0.3553rem + 0.884vi, 1.0625rem);
+    --space-xs-s: clamp(0.875rem, 0.6419rem + 0.9945vi, 1.4375rem);
+    --space-s-m: clamp(1.125rem, 0.6847rem + 1.8785vi, 2.1875rem);
+    --space-m-l: clamp(1.6875rem, 1.1954rem + 2.0994vi, 2.875rem);
+    --space-l-xl: clamp(2.25rem, 1.3954rem + 3.6464vi, 4.3125rem);
+    --space-xl-2xl: clamp(3.375rem, 2.3909rem + 4.1989vi, 5.75rem);
+    --space-2xl-3xl: clamp(4.5rem, 2.7907rem + 7.2928vi, 8.625rem);
+}
+
+.editorial {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xs-2xs);
 }
 
 // Links
 
 a {
-    &:link {
-        text-decoration: underline;
-        text-decoration-style: solid;
-        text-decoration-thickness: from-font;
-        color: inherit;
-    }
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.1em;
+    text-decoration-skip-ink: auto;
+    transition: text-decoration-thickness 200ms ease;
 
-    &:visited {
-        color: inherit;
-    }
-    
+    // &:link {}
+
+    // &:visited {}
+
     &:hover {
-        text-decoration-style: double;
+        text-decoration-thickness: 0.15em;
     }
 
-    &:focus {
-        text-decoration-style: wavy;
+    // &:active {}
+}
+
+@media (prefers-color-scheme: dark) {
+    a.adaptive {
+        text-decoration-color: white;
     }
 }

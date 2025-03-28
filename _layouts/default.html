@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 
     <head>
         <meta charset="utf-8">
@@ -15,7 +15,6 @@
 
         {% comment %} Icons and favicons (put favicon.ico in the root directory) {% endcomment %}
         <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
-        <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
         <meta name="theme-color" content="#000000">
 
         {% comment %} Static file caching version number {% endcomment %}
@@ -27,16 +26,20 @@
 
     <!-- Interested in learning more about this website? Check out https://github.com/thisiscap/www  -->
 
-    <body class="no-js {% if page.name %}page page__{{ page.name | remove: ".html" }}{% endif %}">
+    <body class="no-js site-theme adaptive{% if page.name %} page page__{{ page.name | remove: ".html" }}{% endif %}">
 
-        {% include site-header.html %}
-        
-        <main id="content" class="site-content">
-            {% comment %} Child template content {% endcomment %}
-            {{ content }}
-        </main>
+        <div class="site-container">
+            
+            {% include site-header.html %}
+            
+            <main class="site-main">
+                {% comment %} Child template content {% endcomment %}
+                {{ content }}
+            </main>
 
-        {% include site-footer.html %}
+            {% include site-footer.html %}
+            
+        </div>
 
         <script src="{{ '/assets/js/global.js' | relative_url | append: fileCacheVersion }}" defer></script>
 

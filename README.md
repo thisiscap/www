@@ -1,28 +1,28 @@
 # Welcome :wave:
 
-This is the repo of my small online presence. Made using Jekyll but no longer hosted using [Github Pages](https://pages.github.com/), feel free to take a look around.
+This is the repo of my small online presence. Made using Jekyll, feel free to take a look around.
 
 ## Things I forget
 
-Setup
+### Setup
 
 - Pull repo
 - `cd` to folder
 - Run `bundle install` to install everything needed.
 
-Keep up to date
+### Keep up to date
 
 - Follow setup
 - Run `bundle update`.
 
-Run locally
+### Run locally
 
 - Follow setup
-- Run `bundle exec jekyll serve --livereload`
-- Go to `http://localhost:4000`
+- Run `bundle exec jekyll serve --open-url --livereload`
+- `http://localhost:4000` should open in your browser.
 
-Deploy
+### Deploy
 
 - Follow setup
 - Run `bundle exec jekyll build`
-- Chuck the contents of `_site` up onto hosting
+- Chuck the contents of `_site` up onto hosting.

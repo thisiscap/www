@@ -1,3 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="180" height="180"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><circle cx="90" cy="90" r="87.5" style="fill:#d8ec83"></circle><path d="M126.29 28.77q2.08 17.25 4.18 34.49l-2.13.79c-1.08-1.47-2.19-2.92-3.22-4.42-3.81-5.48-6.8-11.8-11.52-16.31-14.39-13.72-33.81-11.2-45 5.14C54 69.73 57.58 105.22 76 123c16.88 16.29 40.95 11.7 50.66-9.66 1.27-2.79 2.57-5.56 4.62-10 4 15-7 32.75-22.19 39.41-32.43 14.17-68.77-7-73.23-43.38-2.78-22.61 2-43.26 20.51-58.71 15.73-13.12 33.51-15.12 52.52-9.15 5.71 1.8 11.09 3.95 14.93-3.91Z" style="fill:#1c1f11"></path></svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
-@media (prefers-color-scheme: dark) { :root { filter: none; } }
-</style></svg>
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        #favicon-letter {
+            fill: #1D1222;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #favicon-letter {
+                fill: #F3E1FC;
+            }
+        }
+    </style>
+    <path id="favicon-letter" d="M332.583 551.848C191.373 564.202 82.9164 469.043 70.0391 321.855C57.0965 173.92 147.316 60.6258 288.526 48.2714C397.61 38.7279 493.673 104.104 520.69 206.389L377.453 255.811C370.738 213.485 340.675 188.259 301.077 191.724C252.512 195.972 225.54 240.493 231.161 304.747C236.979 371.243 272.832 411.02 322.891 406.64C363.984 403.045 391.386 372.039 392.825 328.247L538.387 374.235C525.833 471.7 440.172 542.435 332.583 551.848Z" />
+</svg>

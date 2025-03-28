@@ -1,7 +1,18 @@
-<footer id="about" class="site-footer">
-    <div class="site-wrapper editorial">
-        <p>Portfolio available <a href="mailto:chrisportercreative+intros@gmail.com?subject=Introduction">upon request</a>.</p>
-        <p>Set in Tobias by <a href="https://displaay.net/">Displaay</a>.</p>
-        <p>&copy; 2013 &mdash;  {{ site.time | date: '%Y' }} All rights reserved.</p>
-    </div>
+{% comment %}
+    Site footer
+    Styles in _sass/global/_site-footer.scss
+{% endcomment %}
+
+<footer class="site-footer">
+    {% if site.data.header-links %}
+        <nav class="footer-navigation">
+            {% for link in site.data.header-links %}
+                <a href="{{ link.url }}">{{ link.text }}</a>{% if forloop.last %}{% else %}, {% endif %}
+            {% endfor %}
+        </nav>
+    {% endif %}
+
+    <aside class="footer-copyright">
+        &copy; {{ site.time | date: '%Y' }}
+    </aside>
 </footer>

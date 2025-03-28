@@ -2,6 +2,8 @@
 // Mixins
 //
 
+@use "sass:math";
+
 // Breakpoints
 
 //
@@ -9,10 +11,10 @@
 //
 
 @mixin bp($point) {
-    $bp-mobile: "(max-width:" + (500 / 16) + "em)";
-    $bp-medium: "(min-width:" + (760 / 16) + "em)";
-    $bp-large: "(min-width:" + (900 / 16) + "em)";
-    $bp-max: "(min-width:" + (1400 / 16) + "em)";
+    $bp-mobile: "(max-width:" + math.div(500, 16) + "em)";
+    $bp-medium: "(min-width:" + math.div(760, 16) + "em)";
+    $bp-large: "(min-width:" + math.div(900, 16) + "em)";
+    $bp-max: "(min-width:" + math.div(1400, 16) + "em)";
 
     @if $point == mobile {
         @media only screen and #{$bp-mobile} {
@@ -55,45 +57,3 @@
         }
     }
 }
-
-//
-// Gradients
-//
-
-/*
-A simple little SCSS mixin for creating scrim gradients
-Inspired by Andreas Larson - https://github.com/larsenwork
-https://css-tricks.com/easing-linear-gradients/
-*/
-
-@mixin scrimGradient($startColor: $color-black, $direction: 'to bottom') {
-
-    $scrimCoordinates: (
-      0: 1,
-      19: 0.738,
-      34: 0.541,
-      47: 0.382,
-      56.5: 0.278,
-      65: 0.194,
-      73: 0.126,
-      80.2: 0.075,
-      86.1: 0.042,
-      91: 0.021,
-      95.2: 0.008,
-      98.2: 0.002,
-      100: 0
-    );
-  
-    $hue: hue($startColor);
-    $saturation: saturation($startColor);
-    $lightness: lightness($startColor);
-    $stops: ();
-  
-    @each $colorStop, $alphaValue in $scrimCoordinates {
-      $stop: hsla($hue, $saturation, $lightness, $alphaValue) percentage($colorStop/100);
-      $stops: append($stops, $stop, comma);
-    }
-  
-    background: linear-gradient(unquote($direction), $stops);
-  
-  }

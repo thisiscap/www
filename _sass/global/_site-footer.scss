@@ -1,33 +1,16 @@
 //
-// Site footer (.site-footer)
+// Site footer styles (_includes/site-footer.html)
 //
 
 .site-footer {
     display: flex;
-    align-items: center;
-    min-height: 50vh;
-    padding: $site-vertical-rhythm--small;
-    background-color: black;
-    color: $colour-green;
-    position: relative;
+    flex-direction: column;
+    gap: auto;
+    justify-content: space-between;
+}
 
-    &::after {
-        content: "";
-        width: 100%;
-        height: 30vh;
-        position: absolute;
-        top: calc(-1 * (30vh - 1px));
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-
-        @include scrimGradient (
-            black, 'to top'
-        )
-    }
-
-    ::selection {
-        background-color: white;
-        color: black;
+@media (min-width: $breakpoint) {
+    .site-footer {
+        align-items: end;
     }
 }
