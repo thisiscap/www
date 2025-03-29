@@ -1,5 +1,17 @@
-.site-header {}
+@use 'helper/variables';
 
-.site-header__heading {
-
+.site-header {
+    a {
+        text-decoration: none;
+    
+        // &:link {}
+    
+        // &:visited {}
+    
+        // &:hover {}
+    
+        // &:active {}
+    }
 }
+
+// .site-header__heading {}
