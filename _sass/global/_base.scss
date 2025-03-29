@@ -8,14 +8,21 @@ $breakpoint: 800px;
 
 // Layout
 
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: "ApfelGrotezk-Regular";
     font-size: var(--font-size-0);
-    min-height: 100svh;
+    height: 100%;
 }
 
 .site-container {
-    min-height: 100%;
+    height: calc(100vh - (var(--space-xs) * 2));
     display: grid;
     grid-template-areas: 
         "header"
@@ -48,8 +55,8 @@ body {
 }
 
 .site-content {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-m-l);
 }
 
@@ -125,6 +132,7 @@ h6 {
     text-transform: uppercase;
     line-height: .9;
     text-wrap: balance;
+    margin: 0;
 }
 
 h1 {
@@ -135,6 +143,7 @@ p {
     line-height: 1.4;
     max-width: 54ch;
     text-wrap: pretty;
+    margin: 0;
 }
 
 // Spacing scales
@@ -163,9 +172,9 @@ p {
 }
 
 .editorial {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-3xs-2xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs-xs);
 }
 
 // Links

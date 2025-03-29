@@ -8,9 +8,3 @@
     gap: auto;
     justify-content: space-between;
 }
-
-@media (min-width: $breakpoint) {
-    .site-footer {
-        align-items: end;
-    }
-}
